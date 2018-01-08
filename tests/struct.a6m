@@ -1,0 +1,19 @@
+struct complex (
+  integer i;
+  integer j;
+)
+
+main(integer x) (
+  var integer i;
+  var (complex) a;
+  a := new complex();
+  a.i := x;
+  a.j := x + 1;
+
+
+
+  print(a.i);
+  print(a.j);
+
+)
+

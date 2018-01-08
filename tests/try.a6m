@@ -1,0 +1,20 @@
+main(integer x) (
+  var integer i;
+  var integer j;
+  var boolean continue;
+  var integer k;
+
+  continue := true;
+  i := 0;
+  j :=5;
+ 
+      try (
+      	k := 49;
+        throw ;	
+        print(k);
+      )
+      catch (print(x););
+      
+   
+)
+

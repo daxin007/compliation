@@ -1,0 +1,12 @@
+main(integer x) (
+  try (
+    fait_throw();
+    print(x);
+  ) catch (
+    print(35);
+  );
+)
+
+fait_throw()(
+  throw;
+)	
