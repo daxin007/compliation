@@ -1,0 +1,345 @@
+
+** Conflict (shift/reduce) in state 119.
+** Token involved: IDENT
+** This state is reached from program after reading:
+
+list(struct_decl) fun_decl 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                           fun_decl fun_decls 
+                           (?)
+
+** In state 119, looking ahead at IDENT, reducing production
+** option(typ) -> 
+** is permitted because of the following sub-derivation:
+
+option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END // lookahead token appears
+. 
+
+** In state 119, looking ahead at IDENT, shifting is permitted
+** because of the following sub-derivation:
+
+option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+typ 
+. IDENT 
+
+** Conflict (shift/reduce) in state 77.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression AND expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 77, looking ahead at POINT, reducing production
+** expression -> expression AND expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression AND expression . 
+
+** In state 77, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression AND expression 
+               location 
+               expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 74.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression EQUAL expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 74, looking ahead at POINT, reducing production
+** expression -> expression EQUAL expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression EQUAL expression . 
+
+** In state 74, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression EQUAL expression 
+                 location 
+                 expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 72.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression LE expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 72, looking ahead at POINT, reducing production
+** expression -> expression LE expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression LE expression . 
+
+** In state 72, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression LE expression 
+              location 
+              expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 70.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression LT expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 70, looking ahead at POINT, reducing production
+** expression -> expression LT expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression LT expression . 
+
+** In state 70, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression LT expression 
+              location 
+              expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 68.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression MINUS expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 68, looking ahead at POINT, reducing production
+** expression -> expression MINUS expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression MINUS expression . 
+
+** In state 68, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression MINUS expression 
+                 location 
+                 expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 66.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression NEQ expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 66, looking ahead at POINT, reducing production
+** expression -> expression NEQ expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression NEQ expression . 
+
+** In state 66, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression NEQ expression 
+               location 
+               expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 64.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression OR expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 64, looking ahead at POINT, reducing production
+** expression -> expression OR expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression OR expression . 
+
+** In state 64, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression OR expression 
+              location 
+              expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 61.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression PLUS expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 61, looking ahead at POINT, reducing production
+** expression -> expression PLUS expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression PLUS expression . 
+
+** In state 61, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression PLUS expression 
+                location 
+                expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 55.
+** Token involved: POINT
+** This state is reached from program after reading:
+
+list(struct_decl) option(typ) IDENT BEGIN formals END BEGIN var_decls expression STAR expression 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+                                                                      instruction SEMI instructions 
+                                                                      location SET expression 
+                                                                      (?)
+
+** In state 55, looking ahead at POINT, reducing production
+** expression -> expression STAR expression 
+** is permitted because of the following sub-derivation:
+
+expression POINT IDENT // lookahead token appears
+expression STAR expression . 
+
+** In state 55, looking ahead at POINT, shifting is permitted
+** because of the following sub-derivation:
+
+expression OB expression CB 
+expression STAR expression 
+                location 
+                expression . POINT IDENT 
+
+** Conflict (shift/reduce) in state 21.
+** Token involved: IDENT
+** This state is reached from program after reading:
+
+list(struct_decl) 
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+program 
+list(struct_decl) fun_decls EOF 
+                  fun_decl fun_decls 
+                  (?)
+
+** In state 21, looking ahead at IDENT, reducing production
+** option(typ) -> 
+** is permitted because of the following sub-derivation:
+
+option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END // lookahead token appears
+. 
+
+** In state 21, looking ahead at IDENT, shifting is permitted
+** because of the following sub-derivation:
+
+option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+typ 
+. IDENT 

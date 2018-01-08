@@ -1,0 +1,1599 @@
+State 0:
+program' -> . program [ # ]
+-- On STRUCT shift to state 1
+-- On struct_decl shift to state 18
+-- On program shift to state 20
+-- On list(struct_decl) shift to state 21
+-- On OB reduce production list(struct_decl) -> 
+-- On INT reduce production list(struct_decl) -> 
+-- On IDENT reduce production list(struct_decl) -> 
+-- On EOF reduce production list(struct_decl) -> 
+-- On BOOL reduce production list(struct_decl) -> 
+
+State 1:
+struct_decl -> STRUCT . IDENT BEGIN field_decls END [ STRUCT OB INT IDENT EOF BOOL ]
+-- On IDENT shift to state 2
+
+State 2:
+struct_decl -> STRUCT IDENT . BEGIN field_decls END [ STRUCT OB INT IDENT EOF BOOL ]
+-- On BEGIN shift to state 3
+
+State 3:
+struct_decl -> STRUCT IDENT BEGIN . field_decls END [ STRUCT OB INT IDENT EOF BOOL ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typ shift to state 10
+-- On list(field_decl) shift to state 13
+-- On field_decls shift to state 14
+-- On field_decl shift to state 16
+-- On END reduce production list(field_decl) -> 
+
+State 4:
+typ -> OB . CB typ [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE IDENT EQUAL END COMMA CB BEGIN AND ]
+-- On CB shift to state 5
+
+State 5:
+typ -> OB CB . typ [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE IDENT EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typ shift to state 9
+
+State 6:
+typ -> INT . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE IDENT EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production typ -> INT 
+-- On STAR reduce production typ -> INT 
+-- On SEMI reduce production typ -> INT 
+-- On POINT reduce production typ -> INT 
+-- On PLUS reduce production typ -> INT 
+-- On OR reduce production typ -> INT 
+-- On OB reduce production typ -> INT 
+-- On NEQ reduce production typ -> INT 
+-- On MINUS reduce production typ -> INT 
+-- On LT reduce production typ -> INT 
+-- On LE reduce production typ -> INT 
+-- On IDENT reduce production typ -> INT 
+-- On EQUAL reduce production typ -> INT 
+-- On END reduce production typ -> INT 
+-- On COMMA reduce production typ -> INT 
+-- On CB reduce production typ -> INT 
+-- On BEGIN reduce production typ -> INT 
+-- On AND reduce production typ -> INT 
+
+State 7:
+typ -> IDENT . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE IDENT EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production typ -> IDENT 
+-- On STAR reduce production typ -> IDENT 
+-- On SEMI reduce production typ -> IDENT 
+-- On POINT reduce production typ -> IDENT 
+-- On PLUS reduce production typ -> IDENT 
+-- On OR reduce production typ -> IDENT 
+-- On OB reduce production typ -> IDENT 
+-- On NEQ reduce production typ -> IDENT 
+-- On MINUS reduce production typ -> IDENT 
+-- On LT reduce production typ -> IDENT 
+-- On LE reduce production typ -> IDENT 
+-- On IDENT reduce production typ -> IDENT 
+-- On EQUAL reduce production typ -> IDENT 
+-- On END reduce production typ -> IDENT 
+-- On COMMA reduce production typ -> IDENT 
+-- On CB reduce production typ -> IDENT 
+-- On BEGIN reduce production typ -> IDENT 
+-- On AND reduce production typ -> IDENT 
+
+State 8:
+typ -> BOOL . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE IDENT EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production typ -> BOOL 
+-- On STAR reduce production typ -> BOOL 
+-- On SEMI reduce production typ -> BOOL 
+-- On POINT reduce production typ -> BOOL 
+-- On PLUS reduce production typ -> BOOL 
+-- On OR reduce production typ -> BOOL 
+-- On OB reduce production typ -> BOOL 
+-- On NEQ reduce production typ -> BOOL 
+-- On MINUS reduce production typ -> BOOL 
+-- On LT reduce production typ -> BOOL 
+-- On LE reduce production typ -> BOOL 
+-- On IDENT reduce production typ -> BOOL 
+-- On EQUAL reduce production typ -> BOOL 
+-- On END reduce production typ -> BOOL 
+-- On COMMA reduce production typ -> BOOL 
+-- On CB reduce production typ -> BOOL 
+-- On BEGIN reduce production typ -> BOOL 
+-- On AND reduce production typ -> BOOL 
+
+State 9:
+typ -> OB CB typ . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE IDENT EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production typ -> OB CB typ 
+-- On STAR reduce production typ -> OB CB typ 
+-- On SEMI reduce production typ -> OB CB typ 
+-- On POINT reduce production typ -> OB CB typ 
+-- On PLUS reduce production typ -> OB CB typ 
+-- On OR reduce production typ -> OB CB typ 
+-- On OB reduce production typ -> OB CB typ 
+-- On NEQ reduce production typ -> OB CB typ 
+-- On MINUS reduce production typ -> OB CB typ 
+-- On LT reduce production typ -> OB CB typ 
+-- On LE reduce production typ -> OB CB typ 
+-- On IDENT reduce production typ -> OB CB typ 
+-- On EQUAL reduce production typ -> OB CB typ 
+-- On END reduce production typ -> OB CB typ 
+-- On COMMA reduce production typ -> OB CB typ 
+-- On CB reduce production typ -> OB CB typ 
+-- On BEGIN reduce production typ -> OB CB typ 
+-- On AND reduce production typ -> OB CB typ 
+
+State 10:
+field_decl -> typ . IDENT SEMI [ OB INT IDENT END BOOL ]
+-- On IDENT shift to state 11
+
+State 11:
+field_decl -> typ IDENT . SEMI [ OB INT IDENT END BOOL ]
+-- On SEMI shift to state 12
+
+State 12:
+field_decl -> typ IDENT SEMI . [ OB INT IDENT END BOOL ]
+-- On OB reduce production field_decl -> typ IDENT SEMI 
+-- On INT reduce production field_decl -> typ IDENT SEMI 
+-- On IDENT reduce production field_decl -> typ IDENT SEMI 
+-- On END reduce production field_decl -> typ IDENT SEMI 
+-- On BOOL reduce production field_decl -> typ IDENT SEMI 
+
+State 13:
+field_decls -> list(field_decl) . [ END ]
+-- On END reduce production field_decls -> list(field_decl) 
+
+State 14:
+struct_decl -> STRUCT IDENT BEGIN field_decls . END [ STRUCT OB INT IDENT EOF BOOL ]
+-- On END shift to state 15
+
+State 15:
+struct_decl -> STRUCT IDENT BEGIN field_decls END . [ STRUCT OB INT IDENT EOF BOOL ]
+-- On STRUCT reduce production struct_decl -> STRUCT IDENT BEGIN field_decls END 
+-- On OB reduce production struct_decl -> STRUCT IDENT BEGIN field_decls END 
+-- On INT reduce production struct_decl -> STRUCT IDENT BEGIN field_decls END 
+-- On IDENT reduce production struct_decl -> STRUCT IDENT BEGIN field_decls END 
+-- On EOF reduce production struct_decl -> STRUCT IDENT BEGIN field_decls END 
+-- On BOOL reduce production struct_decl -> STRUCT IDENT BEGIN field_decls END 
+
+State 16:
+list(field_decl) -> field_decl . list(field_decl) [ END ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typ shift to state 10
+-- On list(field_decl) shift to state 17
+-- On field_decl shift to state 16
+-- On END reduce production list(field_decl) -> 
+
+State 17:
+list(field_decl) -> field_decl list(field_decl) . [ END ]
+-- On END reduce production list(field_decl) -> field_decl list(field_decl) 
+
+State 18:
+list(struct_decl) -> struct_decl . list(struct_decl) [ OB INT IDENT EOF BOOL ]
+-- On STRUCT shift to state 1
+-- On struct_decl shift to state 18
+-- On list(struct_decl) shift to state 19
+-- On OB reduce production list(struct_decl) -> 
+-- On INT reduce production list(struct_decl) -> 
+-- On IDENT reduce production list(struct_decl) -> 
+-- On EOF reduce production list(struct_decl) -> 
+-- On BOOL reduce production list(struct_decl) -> 
+
+State 19:
+list(struct_decl) -> struct_decl list(struct_decl) . [ OB INT IDENT EOF BOOL ]
+-- On OB reduce production list(struct_decl) -> struct_decl list(struct_decl) 
+-- On INT reduce production list(struct_decl) -> struct_decl list(struct_decl) 
+-- On IDENT reduce production list(struct_decl) -> struct_decl list(struct_decl) 
+-- On EOF reduce production list(struct_decl) -> struct_decl list(struct_decl) 
+-- On BOOL reduce production list(struct_decl) -> struct_decl list(struct_decl) 
+
+State 20:
+program' -> program . [ # ]
+-- On # accept program
+
+State 21:
+program -> list(struct_decl) . fun_decls EOF [ # ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typ shift to state 22
+-- On option(typ) shift to state 23
+-- On fun_decls shift to state 117
+-- On fun_decl shift to state 119
+-- On IDENT reduce production option(typ) -> 
+-- On EOF reduce production fun_decls -> 
+** Conflict on IDENT
+
+State 22:
+option(typ) -> typ . [ IDENT ]
+-- On IDENT reduce production option(typ) -> typ 
+
+State 23:
+fun_decl -> option(typ) . IDENT BEGIN formals END BEGIN var_decls instructions END [ OB INT IDENT EOF BOOL ]
+-- On IDENT shift to state 24
+
+State 24:
+fun_decl -> option(typ) IDENT . BEGIN formals END BEGIN var_decls instructions END [ OB INT IDENT EOF BOOL ]
+-- On BEGIN shift to state 25
+
+State 25:
+fun_decl -> option(typ) IDENT BEGIN . formals END BEGIN var_decls instructions END [ OB INT IDENT EOF BOOL ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typed_ident shift to state 26
+-- On typ shift to state 28
+-- On separated_nonempty_list(COMMA,typed_ident) shift to state 31
+-- On loption(separated_nonempty_list(COMMA,typed_ident)) shift to state 32
+-- On formals shift to state 33
+-- On END reduce production loption(separated_nonempty_list(COMMA,typed_ident)) -> 
+
+State 26:
+separated_nonempty_list(COMMA,typed_ident) -> typed_ident . [ END ]
+separated_nonempty_list(COMMA,typed_ident) -> typed_ident . COMMA separated_nonempty_list(COMMA,typed_ident) [ END ]
+-- On COMMA shift to state 27
+-- On END reduce production separated_nonempty_list(COMMA,typed_ident) -> typed_ident 
+
+State 27:
+separated_nonempty_list(COMMA,typed_ident) -> typed_ident COMMA . separated_nonempty_list(COMMA,typed_ident) [ END ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typed_ident shift to state 26
+-- On typ shift to state 28
+-- On separated_nonempty_list(COMMA,typed_ident) shift to state 30
+
+State 28:
+typed_ident -> typ . IDENT [ SEMI END COMMA ]
+-- On IDENT shift to state 29
+
+State 29:
+typed_ident -> typ IDENT . [ SEMI END COMMA ]
+-- On SEMI reduce production typed_ident -> typ IDENT 
+-- On END reduce production typed_ident -> typ IDENT 
+-- On COMMA reduce production typed_ident -> typ IDENT 
+
+State 30:
+separated_nonempty_list(COMMA,typed_ident) -> typed_ident COMMA separated_nonempty_list(COMMA,typed_ident) . [ END ]
+-- On END reduce production separated_nonempty_list(COMMA,typed_ident) -> typed_ident COMMA separated_nonempty_list(COMMA,typed_ident) 
+
+State 31:
+loption(separated_nonempty_list(COMMA,typed_ident)) -> separated_nonempty_list(COMMA,typed_ident) . [ END ]
+-- On END reduce production loption(separated_nonempty_list(COMMA,typed_ident)) -> separated_nonempty_list(COMMA,typed_ident) 
+
+State 32:
+formals -> loption(separated_nonempty_list(COMMA,typed_ident)) . [ END ]
+-- On END reduce production formals -> loption(separated_nonempty_list(COMMA,typed_ident)) 
+
+State 33:
+fun_decl -> option(typ) IDENT BEGIN formals . END BEGIN var_decls instructions END [ OB INT IDENT EOF BOOL ]
+-- On END shift to state 34
+
+State 34:
+fun_decl -> option(typ) IDENT BEGIN formals END . BEGIN var_decls instructions END [ OB INT IDENT EOF BOOL ]
+-- On BEGIN shift to state 35
+
+State 35:
+fun_decl -> option(typ) IDENT BEGIN formals END BEGIN . var_decls instructions END [ OB INT IDENT EOF BOOL ]
+-- On VAR shift to state 36
+-- On var_decls shift to state 39
+-- On var_decl shift to state 114
+-- On list(var_decl) shift to state 116
+-- On WHILE reduce production list(var_decl) -> 
+-- On PRINT reduce production list(var_decl) -> 
+-- On OB reduce production list(var_decl) -> 
+-- On NEW reduce production list(var_decl) -> 
+-- On IF reduce production list(var_decl) -> 
+-- On IDENT reduce production list(var_decl) -> 
+-- On END reduce production list(var_decl) -> 
+-- On CONST_INT reduce production list(var_decl) -> 
+-- On CONST_BOOL reduce production list(var_decl) -> 
+-- On BEGIN reduce production list(var_decl) -> 
+
+State 36:
+var_decl -> VAR . typed_ident SEMI [ WHILE VAR PRINT OB NEW IF IDENT END CONST_INT CONST_BOOL BEGIN ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typed_ident shift to state 37
+-- On typ shift to state 28
+
+State 37:
+var_decl -> VAR typed_ident . SEMI [ WHILE VAR PRINT OB NEW IF IDENT END CONST_INT CONST_BOOL BEGIN ]
+-- On SEMI shift to state 38
+
+State 38:
+var_decl -> VAR typed_ident SEMI . [ WHILE VAR PRINT OB NEW IF IDENT END CONST_INT CONST_BOOL BEGIN ]
+-- On WHILE reduce production var_decl -> VAR typed_ident SEMI 
+-- On VAR reduce production var_decl -> VAR typed_ident SEMI 
+-- On PRINT reduce production var_decl -> VAR typed_ident SEMI 
+-- On OB reduce production var_decl -> VAR typed_ident SEMI 
+-- On NEW reduce production var_decl -> VAR typed_ident SEMI 
+-- On IF reduce production var_decl -> VAR typed_ident SEMI 
+-- On IDENT reduce production var_decl -> VAR typed_ident SEMI 
+-- On END reduce production var_decl -> VAR typed_ident SEMI 
+-- On CONST_INT reduce production var_decl -> VAR typed_ident SEMI 
+-- On CONST_BOOL reduce production var_decl -> VAR typed_ident SEMI 
+-- On BEGIN reduce production var_decl -> VAR typed_ident SEMI 
+
+State 39:
+fun_decl -> option(typ) IDENT BEGIN formals END BEGIN var_decls . instructions END [ OB INT IDENT EOF BOOL ]
+-- On WHILE shift to state 40
+-- On PRINT shift to state 91
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IF shift to state 95
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 101
+-- On literal shift to state 52
+-- On instructions shift to state 112
+-- On instruction shift to state 106
+-- On expression shift to state 109
+-- On call shift to state 110
+-- On END reduce production instructions -> 
+
+State 40:
+instruction -> WHILE . expression block [ SEMI ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 89
+-- On call shift to state 62
+
+State 41:
+expression -> OB . expression CB typ [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 86
+-- On call shift to state 62
+
+State 42:
+expression -> NEW . IDENT BEGIN END [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On IDENT shift to state 43
+
+State 43:
+expression -> NEW IDENT . BEGIN END [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On BEGIN shift to state 44
+
+State 44:
+expression -> NEW IDENT BEGIN . END [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On END shift to state 45
+
+State 45:
+expression -> NEW IDENT BEGIN END . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production expression -> NEW IDENT BEGIN END 
+-- On STAR reduce production expression -> NEW IDENT BEGIN END 
+-- On SEMI reduce production expression -> NEW IDENT BEGIN END 
+-- On POINT reduce production expression -> NEW IDENT BEGIN END 
+-- On PLUS reduce production expression -> NEW IDENT BEGIN END 
+-- On OR reduce production expression -> NEW IDENT BEGIN END 
+-- On OB reduce production expression -> NEW IDENT BEGIN END 
+-- On NEQ reduce production expression -> NEW IDENT BEGIN END 
+-- On MINUS reduce production expression -> NEW IDENT BEGIN END 
+-- On LT reduce production expression -> NEW IDENT BEGIN END 
+-- On LE reduce production expression -> NEW IDENT BEGIN END 
+-- On EQUAL reduce production expression -> NEW IDENT BEGIN END 
+-- On END reduce production expression -> NEW IDENT BEGIN END 
+-- On COMMA reduce production expression -> NEW IDENT BEGIN END 
+-- On CB reduce production expression -> NEW IDENT BEGIN END 
+-- On BEGIN reduce production expression -> NEW IDENT BEGIN END 
+-- On AND reduce production expression -> NEW IDENT BEGIN END 
+
+State 46:
+call -> IDENT . BEGIN actuals END [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> IDENT . [ THEN STAR SET SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On BEGIN shift to state 47
+-- On THEN reduce production location -> IDENT 
+-- On STAR reduce production location -> IDENT 
+-- On SET reduce production location -> IDENT 
+-- On SEMI reduce production location -> IDENT 
+-- On POINT reduce production location -> IDENT 
+-- On PLUS reduce production location -> IDENT 
+-- On OR reduce production location -> IDENT 
+-- On OB reduce production location -> IDENT 
+-- On NEQ reduce production location -> IDENT 
+-- On MINUS reduce production location -> IDENT 
+-- On LT reduce production location -> IDENT 
+-- On LE reduce production location -> IDENT 
+-- On EQUAL reduce production location -> IDENT 
+-- On END reduce production location -> IDENT 
+-- On COMMA reduce production location -> IDENT 
+-- On CB reduce production location -> IDENT 
+-- On AND reduce production location -> IDENT 
+
+State 47:
+call -> IDENT BEGIN . actuals END [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On separated_nonempty_list(COMMA,expression) shift to state 79
+-- On loption(separated_nonempty_list(COMMA,expression)) shift to state 80
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 81
+-- On call shift to state 62
+-- On actuals shift to state 84
+-- On END reduce production loption(separated_nonempty_list(COMMA,expression)) -> 
+
+State 48:
+literal -> CONST_INT . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production literal -> CONST_INT 
+-- On STAR reduce production literal -> CONST_INT 
+-- On SEMI reduce production literal -> CONST_INT 
+-- On POINT reduce production literal -> CONST_INT 
+-- On PLUS reduce production literal -> CONST_INT 
+-- On OR reduce production literal -> CONST_INT 
+-- On OB reduce production literal -> CONST_INT 
+-- On NEQ reduce production literal -> CONST_INT 
+-- On MINUS reduce production literal -> CONST_INT 
+-- On LT reduce production literal -> CONST_INT 
+-- On LE reduce production literal -> CONST_INT 
+-- On EQUAL reduce production literal -> CONST_INT 
+-- On END reduce production literal -> CONST_INT 
+-- On COMMA reduce production literal -> CONST_INT 
+-- On CB reduce production literal -> CONST_INT 
+-- On BEGIN reduce production literal -> CONST_INT 
+-- On AND reduce production literal -> CONST_INT 
+
+State 49:
+literal -> CONST_BOOL . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production literal -> CONST_BOOL 
+-- On STAR reduce production literal -> CONST_BOOL 
+-- On SEMI reduce production literal -> CONST_BOOL 
+-- On POINT reduce production literal -> CONST_BOOL 
+-- On PLUS reduce production literal -> CONST_BOOL 
+-- On OR reduce production literal -> CONST_BOOL 
+-- On OB reduce production literal -> CONST_BOOL 
+-- On NEQ reduce production literal -> CONST_BOOL 
+-- On MINUS reduce production literal -> CONST_BOOL 
+-- On LT reduce production literal -> CONST_BOOL 
+-- On LE reduce production literal -> CONST_BOOL 
+-- On EQUAL reduce production literal -> CONST_BOOL 
+-- On END reduce production literal -> CONST_BOOL 
+-- On COMMA reduce production literal -> CONST_BOOL 
+-- On CB reduce production literal -> CONST_BOOL 
+-- On BEGIN reduce production literal -> CONST_BOOL 
+-- On AND reduce production literal -> CONST_BOOL 
+
+State 50:
+expression -> BEGIN . expression END [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 53
+-- On call shift to state 62
+
+State 51:
+expression -> location . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production expression -> location 
+-- On STAR reduce production expression -> location 
+-- On SEMI reduce production expression -> location 
+-- On POINT reduce production expression -> location 
+-- On PLUS reduce production expression -> location 
+-- On OR reduce production expression -> location 
+-- On OB reduce production expression -> location 
+-- On NEQ reduce production expression -> location 
+-- On MINUS reduce production expression -> location 
+-- On LT reduce production expression -> location 
+-- On LE reduce production expression -> location 
+-- On EQUAL reduce production expression -> location 
+-- On END reduce production expression -> location 
+-- On COMMA reduce production expression -> location 
+-- On CB reduce production expression -> location 
+-- On BEGIN reduce production expression -> location 
+-- On AND reduce production expression -> location 
+
+State 52:
+expression -> literal . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production expression -> literal 
+-- On STAR reduce production expression -> literal 
+-- On SEMI reduce production expression -> literal 
+-- On POINT reduce production expression -> literal 
+-- On PLUS reduce production expression -> literal 
+-- On OR reduce production expression -> literal 
+-- On OB reduce production expression -> literal 
+-- On NEQ reduce production expression -> literal 
+-- On MINUS reduce production expression -> literal 
+-- On LT reduce production expression -> literal 
+-- On LE reduce production expression -> literal 
+-- On EQUAL reduce production expression -> literal 
+-- On END reduce production expression -> literal 
+-- On COMMA reduce production expression -> literal 
+-- On CB reduce production expression -> literal 
+-- On BEGIN reduce production expression -> literal 
+-- On AND reduce production expression -> literal 
+
+State 53:
+expression -> BEGIN expression . END [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . PLUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . MINUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . STAR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . EQUAL expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . NEQ expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . LT expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . LE expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . AND expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . OR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+location -> expression . OB expression CB [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+location -> expression . POINT IDENT [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On END shift to state 78
+-- On AND shift to state 76
+
+State 54:
+expression -> expression STAR . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 55
+-- On call shift to state 62
+
+State 55:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression STAR expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On POINT shift to state 56
+-- On OB shift to state 58
+-- On THEN reduce production expression -> expression STAR expression 
+-- On STAR reduce production expression -> expression STAR expression 
+-- On SEMI reduce production expression -> expression STAR expression 
+-- On POINT reduce production expression -> expression STAR expression 
+-- On PLUS reduce production expression -> expression STAR expression 
+-- On OR reduce production expression -> expression STAR expression 
+-- On NEQ reduce production expression -> expression STAR expression 
+-- On MINUS reduce production expression -> expression STAR expression 
+-- On LT reduce production expression -> expression STAR expression 
+-- On LE reduce production expression -> expression STAR expression 
+-- On EQUAL reduce production expression -> expression STAR expression 
+-- On END reduce production expression -> expression STAR expression 
+-- On COMMA reduce production expression -> expression STAR expression 
+-- On CB reduce production expression -> expression STAR expression 
+-- On BEGIN reduce production expression -> expression STAR expression 
+-- On AND reduce production expression -> expression STAR expression 
+** Conflict on POINT
+
+State 56:
+location -> expression POINT . IDENT [ THEN STAR SET SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On IDENT shift to state 57
+
+State 57:
+location -> expression POINT IDENT . [ THEN STAR SET SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production location -> expression POINT IDENT 
+-- On STAR reduce production location -> expression POINT IDENT 
+-- On SET reduce production location -> expression POINT IDENT 
+-- On SEMI reduce production location -> expression POINT IDENT 
+-- On POINT reduce production location -> expression POINT IDENT 
+-- On PLUS reduce production location -> expression POINT IDENT 
+-- On OR reduce production location -> expression POINT IDENT 
+-- On OB reduce production location -> expression POINT IDENT 
+-- On NEQ reduce production location -> expression POINT IDENT 
+-- On MINUS reduce production location -> expression POINT IDENT 
+-- On LT reduce production location -> expression POINT IDENT 
+-- On LE reduce production location -> expression POINT IDENT 
+-- On EQUAL reduce production location -> expression POINT IDENT 
+-- On END reduce production location -> expression POINT IDENT 
+-- On COMMA reduce production location -> expression POINT IDENT 
+-- On CB reduce production location -> expression POINT IDENT 
+-- On BEGIN reduce production location -> expression POINT IDENT 
+-- On AND reduce production location -> expression POINT IDENT 
+
+State 58:
+location -> expression OB . expression CB [ THEN STAR SET SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 59
+-- On call shift to state 62
+
+State 59:
+expression -> expression . PLUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . MINUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . STAR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . EQUAL expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . NEQ expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . LT expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . LE expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . AND expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . OR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+location -> expression . OB expression CB [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+location -> expression OB expression . CB [ THEN STAR SET SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On CB shift to state 75
+-- On AND shift to state 76
+
+State 60:
+expression -> expression PLUS . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 61
+-- On call shift to state 62
+
+State 61:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression PLUS expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On OB shift to state 58
+-- On THEN reduce production expression -> expression PLUS expression 
+-- On SEMI reduce production expression -> expression PLUS expression 
+-- On POINT reduce production expression -> expression PLUS expression 
+-- On PLUS reduce production expression -> expression PLUS expression 
+-- On OR reduce production expression -> expression PLUS expression 
+-- On NEQ reduce production expression -> expression PLUS expression 
+-- On MINUS reduce production expression -> expression PLUS expression 
+-- On LT reduce production expression -> expression PLUS expression 
+-- On LE reduce production expression -> expression PLUS expression 
+-- On EQUAL reduce production expression -> expression PLUS expression 
+-- On END reduce production expression -> expression PLUS expression 
+-- On COMMA reduce production expression -> expression PLUS expression 
+-- On CB reduce production expression -> expression PLUS expression 
+-- On BEGIN reduce production expression -> expression PLUS expression 
+-- On AND reduce production expression -> expression PLUS expression 
+** Conflict on POINT
+
+State 62:
+expression -> call . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production expression -> call 
+-- On STAR reduce production expression -> call 
+-- On SEMI reduce production expression -> call 
+-- On POINT reduce production expression -> call 
+-- On PLUS reduce production expression -> call 
+-- On OR reduce production expression -> call 
+-- On OB reduce production expression -> call 
+-- On NEQ reduce production expression -> call 
+-- On MINUS reduce production expression -> call 
+-- On LT reduce production expression -> call 
+-- On LE reduce production expression -> call 
+-- On EQUAL reduce production expression -> call 
+-- On END reduce production expression -> call 
+-- On COMMA reduce production expression -> call 
+-- On CB reduce production expression -> call 
+-- On BEGIN reduce production expression -> call 
+-- On AND reduce production expression -> call 
+
+State 63:
+expression -> expression OR . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 64
+-- On call shift to state 62
+
+State 64:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression OR expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On THEN reduce production expression -> expression OR expression 
+-- On SEMI reduce production expression -> expression OR expression 
+-- On POINT reduce production expression -> expression OR expression 
+-- On OR reduce production expression -> expression OR expression 
+-- On END reduce production expression -> expression OR expression 
+-- On COMMA reduce production expression -> expression OR expression 
+-- On CB reduce production expression -> expression OR expression 
+-- On BEGIN reduce production expression -> expression OR expression 
+-- On AND reduce production expression -> expression OR expression 
+** Conflict on POINT
+
+State 65:
+expression -> expression NEQ . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 66
+-- On call shift to state 62
+
+State 66:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression NEQ expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OB shift to state 58
+-- On MINUS shift to state 67
+-- On THEN reduce production expression -> expression NEQ expression 
+-- On SEMI reduce production expression -> expression NEQ expression 
+-- On POINT reduce production expression -> expression NEQ expression 
+-- On OR reduce production expression -> expression NEQ expression 
+-- On NEQ reduce production expression -> expression NEQ expression 
+-- On LT reduce production expression -> expression NEQ expression 
+-- On LE reduce production expression -> expression NEQ expression 
+-- On EQUAL reduce production expression -> expression NEQ expression 
+-- On END reduce production expression -> expression NEQ expression 
+-- On COMMA reduce production expression -> expression NEQ expression 
+-- On CB reduce production expression -> expression NEQ expression 
+-- On BEGIN reduce production expression -> expression NEQ expression 
+-- On AND reduce production expression -> expression NEQ expression 
+** Conflict on POINT
+
+State 67:
+expression -> expression MINUS . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 68
+-- On call shift to state 62
+
+State 68:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression MINUS expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On OB shift to state 58
+-- On THEN reduce production expression -> expression MINUS expression 
+-- On SEMI reduce production expression -> expression MINUS expression 
+-- On POINT reduce production expression -> expression MINUS expression 
+-- On PLUS reduce production expression -> expression MINUS expression 
+-- On OR reduce production expression -> expression MINUS expression 
+-- On NEQ reduce production expression -> expression MINUS expression 
+-- On MINUS reduce production expression -> expression MINUS expression 
+-- On LT reduce production expression -> expression MINUS expression 
+-- On LE reduce production expression -> expression MINUS expression 
+-- On EQUAL reduce production expression -> expression MINUS expression 
+-- On END reduce production expression -> expression MINUS expression 
+-- On COMMA reduce production expression -> expression MINUS expression 
+-- On CB reduce production expression -> expression MINUS expression 
+-- On BEGIN reduce production expression -> expression MINUS expression 
+-- On AND reduce production expression -> expression MINUS expression 
+** Conflict on POINT
+
+State 69:
+expression -> expression LT . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 70
+-- On call shift to state 62
+
+State 70:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression LT expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OB shift to state 58
+-- On MINUS shift to state 67
+-- On THEN reduce production expression -> expression LT expression 
+-- On SEMI reduce production expression -> expression LT expression 
+-- On POINT reduce production expression -> expression LT expression 
+-- On OR reduce production expression -> expression LT expression 
+-- On NEQ reduce production expression -> expression LT expression 
+-- On LT reduce production expression -> expression LT expression 
+-- On LE reduce production expression -> expression LT expression 
+-- On EQUAL reduce production expression -> expression LT expression 
+-- On END reduce production expression -> expression LT expression 
+-- On COMMA reduce production expression -> expression LT expression 
+-- On CB reduce production expression -> expression LT expression 
+-- On BEGIN reduce production expression -> expression LT expression 
+-- On AND reduce production expression -> expression LT expression 
+** Conflict on POINT
+
+State 71:
+expression -> expression LE . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 72
+-- On call shift to state 62
+
+State 72:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression LE expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OB shift to state 58
+-- On MINUS shift to state 67
+-- On THEN reduce production expression -> expression LE expression 
+-- On SEMI reduce production expression -> expression LE expression 
+-- On POINT reduce production expression -> expression LE expression 
+-- On OR reduce production expression -> expression LE expression 
+-- On NEQ reduce production expression -> expression LE expression 
+-- On LT reduce production expression -> expression LE expression 
+-- On LE reduce production expression -> expression LE expression 
+-- On EQUAL reduce production expression -> expression LE expression 
+-- On END reduce production expression -> expression LE expression 
+-- On COMMA reduce production expression -> expression LE expression 
+-- On CB reduce production expression -> expression LE expression 
+-- On BEGIN reduce production expression -> expression LE expression 
+-- On AND reduce production expression -> expression LE expression 
+** Conflict on POINT
+
+State 73:
+expression -> expression EQUAL . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 74
+-- On call shift to state 62
+
+State 74:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression EQUAL expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OB shift to state 58
+-- On MINUS shift to state 67
+-- On THEN reduce production expression -> expression EQUAL expression 
+-- On SEMI reduce production expression -> expression EQUAL expression 
+-- On POINT reduce production expression -> expression EQUAL expression 
+-- On OR reduce production expression -> expression EQUAL expression 
+-- On NEQ reduce production expression -> expression EQUAL expression 
+-- On LT reduce production expression -> expression EQUAL expression 
+-- On LE reduce production expression -> expression EQUAL expression 
+-- On EQUAL reduce production expression -> expression EQUAL expression 
+-- On END reduce production expression -> expression EQUAL expression 
+-- On COMMA reduce production expression -> expression EQUAL expression 
+-- On CB reduce production expression -> expression EQUAL expression 
+-- On BEGIN reduce production expression -> expression EQUAL expression 
+-- On AND reduce production expression -> expression EQUAL expression 
+** Conflict on POINT
+
+State 75:
+location -> expression OB expression CB . [ THEN STAR SET SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production location -> expression OB expression CB 
+-- On STAR reduce production location -> expression OB expression CB 
+-- On SET reduce production location -> expression OB expression CB 
+-- On SEMI reduce production location -> expression OB expression CB 
+-- On POINT reduce production location -> expression OB expression CB 
+-- On PLUS reduce production location -> expression OB expression CB 
+-- On OR reduce production location -> expression OB expression CB 
+-- On OB reduce production location -> expression OB expression CB 
+-- On NEQ reduce production location -> expression OB expression CB 
+-- On MINUS reduce production location -> expression OB expression CB 
+-- On LT reduce production location -> expression OB expression CB 
+-- On LE reduce production location -> expression OB expression CB 
+-- On EQUAL reduce production location -> expression OB expression CB 
+-- On END reduce production location -> expression OB expression CB 
+-- On COMMA reduce production location -> expression OB expression CB 
+-- On CB reduce production location -> expression OB expression CB 
+-- On BEGIN reduce production location -> expression OB expression CB 
+-- On AND reduce production location -> expression OB expression CB 
+
+State 76:
+expression -> expression AND . expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 77
+-- On call shift to state 62
+
+State 77:
+expression -> expression . PLUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . MINUS expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . STAR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . EQUAL expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . NEQ expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LT expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . LE expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . AND expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression AND expression . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+expression -> expression . OR expression [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . POINT IDENT [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On THEN reduce production expression -> expression AND expression 
+-- On SEMI reduce production expression -> expression AND expression 
+-- On POINT reduce production expression -> expression AND expression 
+-- On OR reduce production expression -> expression AND expression 
+-- On END reduce production expression -> expression AND expression 
+-- On COMMA reduce production expression -> expression AND expression 
+-- On CB reduce production expression -> expression AND expression 
+-- On BEGIN reduce production expression -> expression AND expression 
+-- On AND reduce production expression -> expression AND expression 
+** Conflict on POINT
+
+State 78:
+expression -> BEGIN expression END . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production expression -> BEGIN expression END 
+-- On STAR reduce production expression -> BEGIN expression END 
+-- On SEMI reduce production expression -> BEGIN expression END 
+-- On POINT reduce production expression -> BEGIN expression END 
+-- On PLUS reduce production expression -> BEGIN expression END 
+-- On OR reduce production expression -> BEGIN expression END 
+-- On OB reduce production expression -> BEGIN expression END 
+-- On NEQ reduce production expression -> BEGIN expression END 
+-- On MINUS reduce production expression -> BEGIN expression END 
+-- On LT reduce production expression -> BEGIN expression END 
+-- On LE reduce production expression -> BEGIN expression END 
+-- On EQUAL reduce production expression -> BEGIN expression END 
+-- On END reduce production expression -> BEGIN expression END 
+-- On COMMA reduce production expression -> BEGIN expression END 
+-- On CB reduce production expression -> BEGIN expression END 
+-- On BEGIN reduce production expression -> BEGIN expression END 
+-- On AND reduce production expression -> BEGIN expression END 
+
+State 79:
+loption(separated_nonempty_list(COMMA,expression)) -> separated_nonempty_list(COMMA,expression) . [ END ]
+-- On END reduce production loption(separated_nonempty_list(COMMA,expression)) -> separated_nonempty_list(COMMA,expression) 
+
+State 80:
+actuals -> loption(separated_nonempty_list(COMMA,expression)) . [ END ]
+-- On END reduce production actuals -> loption(separated_nonempty_list(COMMA,expression)) 
+
+State 81:
+expression -> expression . PLUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+expression -> expression . MINUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+expression -> expression . STAR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+expression -> expression . EQUAL expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+expression -> expression . NEQ expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+expression -> expression . LT expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+expression -> expression . LE expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+expression -> expression . AND expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+expression -> expression . OR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+location -> expression . OB expression CB [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+location -> expression . POINT IDENT [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA AND ]
+separated_nonempty_list(COMMA,expression) -> expression . [ END ]
+separated_nonempty_list(COMMA,expression) -> expression . COMMA separated_nonempty_list(COMMA,expression) [ END ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On COMMA shift to state 82
+-- On AND shift to state 76
+-- On END reduce production separated_nonempty_list(COMMA,expression) -> expression 
+
+State 82:
+separated_nonempty_list(COMMA,expression) -> expression COMMA . separated_nonempty_list(COMMA,expression) [ END ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On separated_nonempty_list(COMMA,expression) shift to state 83
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 81
+-- On call shift to state 62
+
+State 83:
+separated_nonempty_list(COMMA,expression) -> expression COMMA separated_nonempty_list(COMMA,expression) . [ END ]
+-- On END reduce production separated_nonempty_list(COMMA,expression) -> expression COMMA separated_nonempty_list(COMMA,expression) 
+
+State 84:
+call -> IDENT BEGIN actuals . END [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On END shift to state 85
+
+State 85:
+call -> IDENT BEGIN actuals END . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production call -> IDENT BEGIN actuals END 
+-- On STAR reduce production call -> IDENT BEGIN actuals END 
+-- On SEMI reduce production call -> IDENT BEGIN actuals END 
+-- On POINT reduce production call -> IDENT BEGIN actuals END 
+-- On PLUS reduce production call -> IDENT BEGIN actuals END 
+-- On OR reduce production call -> IDENT BEGIN actuals END 
+-- On OB reduce production call -> IDENT BEGIN actuals END 
+-- On NEQ reduce production call -> IDENT BEGIN actuals END 
+-- On MINUS reduce production call -> IDENT BEGIN actuals END 
+-- On LT reduce production call -> IDENT BEGIN actuals END 
+-- On LE reduce production call -> IDENT BEGIN actuals END 
+-- On EQUAL reduce production call -> IDENT BEGIN actuals END 
+-- On END reduce production call -> IDENT BEGIN actuals END 
+-- On COMMA reduce production call -> IDENT BEGIN actuals END 
+-- On CB reduce production call -> IDENT BEGIN actuals END 
+-- On BEGIN reduce production call -> IDENT BEGIN actuals END 
+-- On AND reduce production call -> IDENT BEGIN actuals END 
+
+State 86:
+expression -> expression . PLUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . MINUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . STAR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . EQUAL expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . NEQ expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . LT expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . LE expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . AND expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> expression . OR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+expression -> OB expression . CB typ [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+location -> expression . OB expression CB [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+location -> expression . POINT IDENT [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL CB AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On CB shift to state 87
+-- On AND shift to state 76
+
+State 87:
+expression -> OB expression CB . typ [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typ shift to state 88
+
+State 88:
+expression -> OB expression CB typ . [ THEN STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL END COMMA CB BEGIN AND ]
+-- On THEN reduce production expression -> OB expression CB typ 
+-- On STAR reduce production expression -> OB expression CB typ 
+-- On SEMI reduce production expression -> OB expression CB typ 
+-- On POINT reduce production expression -> OB expression CB typ 
+-- On PLUS reduce production expression -> OB expression CB typ 
+-- On OR reduce production expression -> OB expression CB typ 
+-- On OB reduce production expression -> OB expression CB typ 
+-- On NEQ reduce production expression -> OB expression CB typ 
+-- On MINUS reduce production expression -> OB expression CB typ 
+-- On LT reduce production expression -> OB expression CB typ 
+-- On LE reduce production expression -> OB expression CB typ 
+-- On EQUAL reduce production expression -> OB expression CB typ 
+-- On END reduce production expression -> OB expression CB typ 
+-- On COMMA reduce production expression -> OB expression CB typ 
+-- On CB reduce production expression -> OB expression CB typ 
+-- On BEGIN reduce production expression -> OB expression CB typ 
+-- On AND reduce production expression -> OB expression CB typ 
+
+State 89:
+expression -> expression . PLUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+expression -> expression . MINUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+expression -> expression . STAR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+expression -> expression . EQUAL expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+expression -> expression . NEQ expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+expression -> expression . LT expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+expression -> expression . LE expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+expression -> expression . AND expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+expression -> expression . OR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+instruction -> WHILE expression . block [ SEMI ]
+location -> expression . OB expression CB [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+location -> expression . POINT IDENT [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL BEGIN AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On BEGIN shift to state 90
+-- On AND shift to state 76
+-- On block shift to state 111
+
+State 90:
+block -> BEGIN . instructions END [ SEMI ELSE ]
+-- On WHILE shift to state 40
+-- On PRINT shift to state 91
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IF shift to state 95
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 101
+-- On literal shift to state 52
+-- On instructions shift to state 104
+-- On instruction shift to state 106
+-- On expression shift to state 109
+-- On call shift to state 110
+-- On END reduce production instructions -> 
+
+State 91:
+instruction -> PRINT . BEGIN expression END [ SEMI ]
+-- On BEGIN shift to state 92
+
+State 92:
+instruction -> PRINT BEGIN . expression END [ SEMI ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 93
+-- On call shift to state 62
+
+State 93:
+expression -> expression . PLUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . MINUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . STAR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . EQUAL expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . NEQ expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . LT expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . LE expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . AND expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+expression -> expression . OR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+instruction -> PRINT BEGIN expression . END [ SEMI ]
+location -> expression . OB expression CB [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+location -> expression . POINT IDENT [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL END AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On END shift to state 94
+-- On AND shift to state 76
+
+State 94:
+instruction -> PRINT BEGIN expression END . [ SEMI ]
+-- On SEMI reduce production instruction -> PRINT BEGIN expression END 
+
+State 95:
+instruction -> IF . expression THEN block ELSE block [ SEMI ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 96
+-- On call shift to state 62
+
+State 96:
+expression -> expression . PLUS expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . MINUS expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . STAR expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . EQUAL expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . NEQ expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . LT expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . LE expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . AND expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . OR expression [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+instruction -> IF expression . THEN block ELSE block [ SEMI ]
+location -> expression . OB expression CB [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+location -> expression . POINT IDENT [ THEN STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+-- On THEN shift to state 97
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On AND shift to state 76
+
+State 97:
+instruction -> IF expression THEN . block ELSE block [ SEMI ]
+-- On BEGIN shift to state 90
+-- On block shift to state 98
+
+State 98:
+instruction -> IF expression THEN block . ELSE block [ SEMI ]
+-- On ELSE shift to state 99
+
+State 99:
+instruction -> IF expression THEN block ELSE . block [ SEMI ]
+-- On BEGIN shift to state 90
+-- On block shift to state 100
+
+State 100:
+instruction -> IF expression THEN block ELSE block . [ SEMI ]
+-- On SEMI reduce production instruction -> IF expression THEN block ELSE block 
+
+State 101:
+expression -> location . [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+instruction -> location . SET expression [ SEMI ]
+-- On SET shift to state 102
+-- On STAR reduce production expression -> location 
+-- On POINT reduce production expression -> location 
+-- On PLUS reduce production expression -> location 
+-- On OR reduce production expression -> location 
+-- On OB reduce production expression -> location 
+-- On NEQ reduce production expression -> location 
+-- On MINUS reduce production expression -> location 
+-- On LT reduce production expression -> location 
+-- On LE reduce production expression -> location 
+-- On EQUAL reduce production expression -> location 
+-- On AND reduce production expression -> location 
+
+State 102:
+instruction -> location SET . expression [ SEMI ]
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 51
+-- On literal shift to state 52
+-- On expression shift to state 103
+-- On call shift to state 62
+
+State 103:
+expression -> expression . PLUS expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . MINUS expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . STAR expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . EQUAL expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . NEQ expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . LT expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . LE expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . AND expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . OR expression [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+instruction -> location SET expression . [ SEMI ]
+location -> expression . OB expression CB [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+location -> expression . POINT IDENT [ STAR SEMI POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On AND shift to state 76
+-- On SEMI reduce production instruction -> location SET expression 
+
+State 104:
+block -> BEGIN instructions . END [ SEMI ELSE ]
+-- On END shift to state 105
+
+State 105:
+block -> BEGIN instructions END . [ SEMI ELSE ]
+-- On SEMI reduce production block -> BEGIN instructions END 
+-- On ELSE reduce production block -> BEGIN instructions END 
+
+State 106:
+instructions -> instruction . SEMI instructions [ END ]
+-- On SEMI shift to state 107
+
+State 107:
+instructions -> instruction SEMI . instructions [ END ]
+-- On WHILE shift to state 40
+-- On PRINT shift to state 91
+-- On OB shift to state 41
+-- On NEW shift to state 42
+-- On IF shift to state 95
+-- On IDENT shift to state 46
+-- On CONST_INT shift to state 48
+-- On CONST_BOOL shift to state 49
+-- On BEGIN shift to state 50
+-- On location shift to state 101
+-- On literal shift to state 52
+-- On instructions shift to state 108
+-- On instruction shift to state 106
+-- On expression shift to state 109
+-- On call shift to state 110
+-- On END reduce production instructions -> 
+
+State 108:
+instructions -> instruction SEMI instructions . [ END ]
+-- On END reduce production instructions -> instruction SEMI instructions 
+
+State 109:
+expression -> expression . PLUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . MINUS expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . STAR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . EQUAL expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . NEQ expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . LT expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . LE expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . AND expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+expression -> expression . OR expression [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+location -> expression . OB expression CB [ STAR SET POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+location -> expression . POINT IDENT [ STAR SET POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+-- On STAR shift to state 54
+-- On POINT shift to state 56
+-- On PLUS shift to state 60
+-- On OR shift to state 63
+-- On OB shift to state 58
+-- On NEQ shift to state 65
+-- On MINUS shift to state 67
+-- On LT shift to state 69
+-- On LE shift to state 71
+-- On EQUAL shift to state 73
+-- On AND shift to state 76
+
+State 110:
+expression -> call . [ STAR POINT PLUS OR OB NEQ MINUS LT LE EQUAL AND ]
+instruction -> call . [ SEMI ]
+-- On STAR reduce production expression -> call 
+-- On SEMI reduce production instruction -> call 
+-- On POINT reduce production expression -> call 
+-- On PLUS reduce production expression -> call 
+-- On OR reduce production expression -> call 
+-- On OB reduce production expression -> call 
+-- On NEQ reduce production expression -> call 
+-- On MINUS reduce production expression -> call 
+-- On LT reduce production expression -> call 
+-- On LE reduce production expression -> call 
+-- On EQUAL reduce production expression -> call 
+-- On AND reduce production expression -> call 
+
+State 111:
+instruction -> WHILE expression block . [ SEMI ]
+-- On SEMI reduce production instruction -> WHILE expression block 
+
+State 112:
+fun_decl -> option(typ) IDENT BEGIN formals END BEGIN var_decls instructions . END [ OB INT IDENT EOF BOOL ]
+-- On END shift to state 113
+
+State 113:
+fun_decl -> option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END . [ OB INT IDENT EOF BOOL ]
+-- On OB reduce production fun_decl -> option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+-- On INT reduce production fun_decl -> option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+-- On IDENT reduce production fun_decl -> option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+-- On EOF reduce production fun_decl -> option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+-- On BOOL reduce production fun_decl -> option(typ) IDENT BEGIN formals END BEGIN var_decls instructions END 
+
+State 114:
+list(var_decl) -> var_decl . list(var_decl) [ WHILE PRINT OB NEW IF IDENT END CONST_INT CONST_BOOL BEGIN ]
+-- On VAR shift to state 36
+-- On var_decl shift to state 114
+-- On list(var_decl) shift to state 115
+-- On WHILE reduce production list(var_decl) -> 
+-- On PRINT reduce production list(var_decl) -> 
+-- On OB reduce production list(var_decl) -> 
+-- On NEW reduce production list(var_decl) -> 
+-- On IF reduce production list(var_decl) -> 
+-- On IDENT reduce production list(var_decl) -> 
+-- On END reduce production list(var_decl) -> 
+-- On CONST_INT reduce production list(var_decl) -> 
+-- On CONST_BOOL reduce production list(var_decl) -> 
+-- On BEGIN reduce production list(var_decl) -> 
+
+State 115:
+list(var_decl) -> var_decl list(var_decl) . [ WHILE PRINT OB NEW IF IDENT END CONST_INT CONST_BOOL BEGIN ]
+-- On WHILE reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On PRINT reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On OB reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On NEW reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On IF reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On IDENT reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On END reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On CONST_INT reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On CONST_BOOL reduce production list(var_decl) -> var_decl list(var_decl) 
+-- On BEGIN reduce production list(var_decl) -> var_decl list(var_decl) 
+
+State 116:
+var_decls -> list(var_decl) . [ WHILE PRINT OB NEW IF IDENT END CONST_INT CONST_BOOL BEGIN ]
+-- On WHILE reduce production var_decls -> list(var_decl) 
+-- On PRINT reduce production var_decls -> list(var_decl) 
+-- On OB reduce production var_decls -> list(var_decl) 
+-- On NEW reduce production var_decls -> list(var_decl) 
+-- On IF reduce production var_decls -> list(var_decl) 
+-- On IDENT reduce production var_decls -> list(var_decl) 
+-- On END reduce production var_decls -> list(var_decl) 
+-- On CONST_INT reduce production var_decls -> list(var_decl) 
+-- On CONST_BOOL reduce production var_decls -> list(var_decl) 
+-- On BEGIN reduce production var_decls -> list(var_decl) 
+
+State 117:
+program -> list(struct_decl) fun_decls . EOF [ # ]
+-- On EOF shift to state 118
+
+State 118:
+program -> list(struct_decl) fun_decls EOF . [ # ]
+-- On # reduce production program -> list(struct_decl) fun_decls EOF 
+
+State 119:
+fun_decls -> fun_decl . fun_decls [ EOF ]
+-- On OB shift to state 4
+-- On INT shift to state 6
+-- On IDENT shift to state 7
+-- On BOOL shift to state 8
+-- On typ shift to state 22
+-- On option(typ) shift to state 23
+-- On fun_decls shift to state 120
+-- On fun_decl shift to state 119
+-- On IDENT reduce production option(typ) -> 
+-- On EOF reduce production fun_decls -> 
+** Conflict on IDENT
+
+State 120:
+fun_decls -> fun_decl fun_decls . [ EOF ]
+-- On EOF reduce production fun_decls -> fun_decl fun_decls 
+
